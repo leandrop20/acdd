@@ -55,6 +55,10 @@ $idNums = "000000";
  			<p><strong>Celular</strong></p>
  			<p><?= $data['celular']; ?></p>
 		</div>
+		<div class="col-md-4">
+			<p><strong>Cadastrado em</strong></p>
+			<p><?= date('d/m/Y', strtotime(str_replace('/', '-', $data['data_cadastro']))); ?></p>
+		</div>
 	</div>
 	<hr />
 	<div id="actions" class="row">
