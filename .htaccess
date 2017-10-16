@@ -1,0 +1,26 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^([^/]+)$ index.php?param1=$1 [L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^([^/]+)/([^/]+)$ index.php?param1=$1&param2=$2 [L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^([^/]+)/([^/]+)/([^/]+)$ index.php?param1=$1&param2=$2&param3=$3 [L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)$ index.php?param1=$1&param2=$2&param3=$3&param4=$4 [L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ index.php?param1=$1&param2=$2&param3=$3&param4=$4&param5=$5 [L]
+
+	RewriteCond %{HTTPS} !=on
+    RewriteRule ^/?(.*) https://%{SERVER_NAME}/acaminhodedeus/$1 [R=301,L]
+</IfModule>

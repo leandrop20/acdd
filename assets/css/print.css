@@ -1,0 +1,51 @@
+@media print {
+	body * {
+		visibility: hidden;
+		margin: 0;
+		padding: 0;
+		left:0;
+		top:0;
+	}
+	#printable, #printable * {
+		visibility: visible;
+		float: none;
+	}
+	#printable {
+		position: absolute;
+		margin:0;
+		padding: 0;
+		left: 0;
+		top: 0;
+		width: 100%;
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		font-size: 12px;
+	}
+	h5 {
+		padding: 5px;
+		text-align: center;
+		border:1px solid #E9E9E9;
+	}
+	table {
+		width:100%;
+	}
+	td {
+		border:1px solid #E9E9E9;
+		padding: 5px;
+		text-align: center;
+	}
+    th {
+    	padding: 5px;
+    	page-break-after: always;
+    	page-break-inside: avoid;
+    }
+    tr, th, td {
+    	page-break-after: always;
+    	page-break-inside: avoid;
+    }
+    div {
+    	margin: 0px; padding:0px;
+    }
+    a {
+    	text-decoration: none;
+    }
+}
