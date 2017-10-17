@@ -9,5 +9,6 @@ class AgendaModel extends Model
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

@@ -9,5 +9,6 @@ class FarmMedicamentosModel extends Model
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

@@ -20,6 +20,7 @@ class FarmMedicamentosController extends Controller
 		$sectorsAllow = [0,3];
 		parent::__construct($sectorsAllow);
 	}
+
 	public function index()
 	{
 		$params = [];
@@ -41,6 +42,7 @@ class FarmMedicamentosController extends Controller
 		}
 		$this->result = $result;
 	}
+
 	public function add()
 	{
 		if (count($_POST) > 0) {
@@ -57,6 +59,7 @@ class FarmMedicamentosController extends Controller
 			}
 		}
 	}
+
 	public function edit($ID)
 	{
 		if (count($_POST) > 0) {
@@ -72,11 +75,13 @@ class FarmMedicamentosController extends Controller
 			$this->result = $result;
 		}
 	}
+
 	public function delete($ID)
 	{
 		$save = $this->model->delete("farm_".$this->table, $ID);
 		echo "<script>window.history.go(-1)</script>";
 	}
+
 	public function search()
 	{
 		$params = [];
@@ -88,4 +93,5 @@ class FarmMedicamentosController extends Controller
 		$result = $this->model->find("farm_".$this->table, $params);
 		$this->result = $result;
 	}
+	
 }

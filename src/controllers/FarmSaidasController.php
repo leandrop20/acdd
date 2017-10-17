@@ -20,6 +20,7 @@ class FarmSaidasController extends Controller
 		$sectorsAllow = [0,3];
 		parent::__construct($sectorsAllow);
 	}
+
 	public function index()
 	{
 		$params = [];
@@ -46,6 +47,7 @@ class FarmSaidasController extends Controller
 		}
 		$this->result = $result;
 	}
+
 	public function add($ID = null)
 	{
 		if (count($_POST) == 3) {
@@ -74,6 +76,7 @@ class FarmSaidasController extends Controller
 			exit();
 		}
 	}
+
 	public function delete($ID)
 	{
 		$dataSaida = $this->model->find("farm_".$this->table, [['id', $ID]], "first")->data;
@@ -83,4 +86,5 @@ class FarmSaidasController extends Controller
 		$this->model->deletePhysical("farm_".$this->table, $ID);
 		echo "<script>window.history.go(-1)</script>";
 	}
+	
 }

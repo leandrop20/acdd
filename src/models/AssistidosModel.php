@@ -9,5 +9,6 @@ class AssistidosModel extends Model
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

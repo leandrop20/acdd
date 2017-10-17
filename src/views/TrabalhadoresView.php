@@ -9,5 +9,6 @@ class TrabalhadoresView extends View
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

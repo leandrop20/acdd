@@ -9,5 +9,6 @@ class FarmLotesView extends View
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

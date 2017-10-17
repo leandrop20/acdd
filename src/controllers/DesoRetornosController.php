@@ -20,6 +20,7 @@ class DesoRetornosController extends Controller
 		$sectorsAllow = [0,1,2];
 		parent::__construct($sectorsAllow);
 	}
+
 	public function index()
 	{
 		$params = [];
@@ -48,6 +49,7 @@ class DesoRetornosController extends Controller
 		}
 		$this->result = $result;
 	}
+
 	public function view($ID)
 	{
 		$result = $this->model->find("deso_".$this->table, [["id", $ID]], "first");
@@ -57,6 +59,7 @@ class DesoRetornosController extends Controller
 		$result->nomeTrabalhador = $dataTrabalhador['nome'];
 		$this->result = $result;
 	}
+
 	public function add($ID = -1)
 	{
 		if (count($_POST) > 0) {
@@ -74,6 +77,7 @@ class DesoRetornosController extends Controller
 			$this->result = $result;
 		}
 	}
+
 	public function edit($ID)
 	{
 		if (count($_POST) > 0) {
@@ -93,9 +97,11 @@ class DesoRetornosController extends Controller
 			$this->result = $result;
 		}
 	}
+
 	public function delete($ID)
 	{
 		$save = $this->model->delete("deso_".$this->table, $ID);
 		echo "<script>window.history.go(-1)</script>";
 	}
+	
 }

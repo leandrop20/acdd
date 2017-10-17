@@ -9,5 +9,6 @@ class CiruRetornosModel extends Model
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

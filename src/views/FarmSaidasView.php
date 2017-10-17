@@ -9,5 +9,6 @@ class FarmSaidasView extends View
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

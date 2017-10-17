@@ -9,5 +9,6 @@ class DesobsessoesModel extends Model
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

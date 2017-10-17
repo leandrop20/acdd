@@ -24,6 +24,7 @@ class AuthModel extends Model
 		}
 		parent::__construct();
 	}
+
 	function checkLog()
 	{
 		if (isset($_POST['login'])) {
@@ -39,10 +40,12 @@ class AuthModel extends Model
 		}
 		return false;
 	}
+
 	public function getAuth()
 	{
 		return $this->dataAuth;
 	}
+
 	public function logout()
 	{
 		session_unset('userName');
@@ -54,5 +57,6 @@ class AuthModel extends Model
 		$this->dataAuth->setor = "";
 		$this->dataAuth->id = "";
 	}
+	
 }
 ?>

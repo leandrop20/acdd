@@ -9,5 +9,6 @@ class PassesModel extends Model
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

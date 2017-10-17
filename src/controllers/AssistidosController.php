@@ -21,6 +21,7 @@ class AssistidosController extends Controller
 		$sectorsAllow = [0,1,2,4];
 		parent::__construct($sectorsAllow);
 	}
+
 	public function index()
 	{
 		$params = [];
@@ -34,6 +35,7 @@ class AssistidosController extends Controller
 		$result = $this->model->find($this->table, $params, "all", true, $order);
 		$this->result = $result;
 	}
+
 	public function view($ID)
 	{
 		$out = new stdClass();
@@ -43,6 +45,7 @@ class AssistidosController extends Controller
 		$out->city = $this->model->find("cidades", [["id", $result['id_cidade']]], "first")->data['nome'];
 		$this->result = $out;
 	}
+
 	public function add()
 	{
 		if (count($_POST) > 0) {
@@ -62,6 +65,7 @@ class AssistidosController extends Controller
 			$this->result = $find;
 		}
 	}
+
 	public function edit($ID)
 	{
 		$out = new stdClass();
@@ -80,11 +84,13 @@ class AssistidosController extends Controller
 			$this->result = $out;
 		}
 	}
+
 	public function delete($ID)
 	{
 		$save = $this->model->delete($this->table, $ID);
 		echo "<script>window.history.go(-1)</script>";
 	}
+
 	public function checkPresence($ID)
 	{
 		if ($this->model->find("assis_presencas", [["id_assistido", $ID], ["data", date('Y-m-d')]], "first")->num > 0) {
@@ -92,6 +98,7 @@ class AssistidosController extends Controller
 		}
 		return false;
 	}
+
 	public function setPresence($ID)
 	{
 		$find = $this->model->find("assis_presencas", [["id_assistido", $ID], ["data", date('Y-m-d')]], "first");
@@ -106,6 +113,7 @@ class AssistidosController extends Controller
 		}
 		echo "<script>window.history.go(-1)</script>";
 	}
+
 	public function search()
 	{
 		$params = [];
@@ -117,6 +125,7 @@ class AssistidosController extends Controller
 		$result = $this->model->find($this->table, $params);
 		$this->result = $result;
 	}
+
 	public function report($ID)
 	{
 		$out = new stdClass();
@@ -131,6 +140,7 @@ class AssistidosController extends Controller
 
 		$this->result = $out;
 	}
+
 	public function saveImage()
 	{
 		$params = [];
@@ -154,5 +164,6 @@ class AssistidosController extends Controller
 			$this->result = $save->success;
 		}
 	}
+	
 }
 ?>

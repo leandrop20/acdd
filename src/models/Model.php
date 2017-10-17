@@ -13,11 +13,13 @@ class Model
 		$this->password = "";
 		$this->db = "acdd";
 	}
+
 	private function connect()
 	{
 		$conn = mysqli_connect($this->server, $this->user, $this->password, $this->db);
 		return $conn;
 	}
+
 	public function save($table, $data)
 	{
 		$out = new stdClass();
@@ -44,6 +46,7 @@ class Model
 		$conn->close();
 		return $out;
 	}
+
 	public function find($table, $params = [], $typeReturn = "all", $pagination = false, $order = "id")
 	{
 		$out = new stdClass();
@@ -102,6 +105,7 @@ class Model
 		$conn->close();
 		return $out;
 	}
+
 	public function findByDate($table, $params = [], $order = 'id')
 	{
 		$out = new stdClass();
@@ -124,6 +128,7 @@ class Model
 		$conn->close();
 		return $out;
 	}
+
 	public function update($table, $data, $ID)
 	{
 		$out = new stdClass();
@@ -158,6 +163,7 @@ class Model
 
 		return $out;
 	}
+
 	public function delete($table, $ID)
 	{
 		$out = new stdClass();
@@ -169,6 +175,7 @@ class Model
 
 		return $out;
 	}
+
 	public function deletePhysical($table, $ID)
 	{
 		$out = new stdClass();
@@ -180,5 +187,6 @@ class Model
 
 		return $out;
 	}
+	
 }
 ?>

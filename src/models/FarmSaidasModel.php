@@ -9,5 +9,6 @@ class FarmSaidasModel extends Model
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

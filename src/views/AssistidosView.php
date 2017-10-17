@@ -9,5 +9,6 @@ class AssistidosView extends View
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

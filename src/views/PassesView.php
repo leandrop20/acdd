@@ -9,5 +9,6 @@ class PassesView extends View
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

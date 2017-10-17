@@ -9,5 +9,6 @@ class DesobsessoesView extends View
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

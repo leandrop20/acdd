@@ -9,5 +9,6 @@ class CursGruposModel extends Model
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

@@ -20,10 +20,12 @@ class AgendaController extends Controller
 		$sectorsAllow = [0,1,2];
 		parent::__construct($sectorsAllow);
 	}
+	
 	private function convertDate($value)
 	{
 		return date('Y-m-d', strtotime(str_replace('/', '-', $value)));
 	}
+	
 	public function agenda()
 	{
 		$result = new stdClass();
@@ -65,4 +67,5 @@ class AgendaController extends Controller
 		}
 		$this->result = $result;
 	}
+	
 }

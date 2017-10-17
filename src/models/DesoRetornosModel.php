@@ -9,5 +9,6 @@ class DesoRetornosModel extends Model
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

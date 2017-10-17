@@ -9,5 +9,6 @@ class RelatoriosView extends View
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

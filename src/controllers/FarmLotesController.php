@@ -5,6 +5,7 @@ use controllers\Controller;
 use models\FarmLotesModel;
 use views\FarmLotesView;
 use \stdClass;
+use \DateTime;
 
 class FarmLotesController extends Controller
 {
@@ -20,6 +21,7 @@ class FarmLotesController extends Controller
 		$sectorsAllow = [0,3];
 		parent::__construct($sectorsAllow);
 	}
+
 	public function index()
 	{
 		$params = [];
@@ -35,11 +37,20 @@ class FarmLotesController extends Controller
 			}
 		}
 		$result = $this->model->find("farm_".$this->table, $params, "all", true, $order);
+		print('<br><br><br>');
 		for ($i=0;$i<$result->num;$i++) {
 			$dataMedicamento = $this->model->find("farm_medicamentos", [['id', $result->data[$i]['id_medicamento']]], "first")->data;
 			$result->data[$i]['nomeMedicamento'] = $dataMedicamento['nome'];
-			$result->data[$i]['statusVencimento'] = 1;
-			if ($result->data[$i]['validade'] < date("Y-m-d")) {
+
+			$validity = new DateTime($result->data[$i]['validade']);
+			$today = new DateTime('now');
+			
+			$diff = $today->diff($validity);
+			if ($diff->invert) {
+				$result->data[$i]['statusVencimento'] = 2;
+			} else if ($diff->d < 7) {
+				$result->data[$i]['statusVencimento'] = 1;
+			} else {
 				$result->data[$i]['statusVencimento'] = 0;
 			}
 		}
@@ -50,6 +61,7 @@ class FarmLotesController extends Controller
 		}
 		$this->result = $result;
 	}
+
 	public function add($ID = null)
 	{
 		if (count($_POST) > 0) {
@@ -71,6 +83,7 @@ class FarmLotesController extends Controller
 			}
 		}
 	}
+
 	public function edit($ID)
 	{
 		if (count($_POST) > 0) {
@@ -89,11 +102,13 @@ class FarmLotesController extends Controller
 			$this->result = $result;
 		}
 	}
+
 	public function delete($ID)
 	{
 		$save = $this->model->delete("farm_".$this->table, $ID);
 		echo "<script>window.history.go(-1)</script>";
 	}
+
 	public function search()
 	{
 		$params = [];
@@ -105,4 +120,5 @@ class FarmLotesController extends Controller
 		$result = $this->model->find("farm_".$this->table, $params);
 		$this->result = $result;
 	}
+	
 }

@@ -19,6 +19,7 @@ class TrabalhadoresController extends Controller
 		$sectorsAllow = [0,1,2,3,4,5];
 		parent::__construct($sectorsAllow);
 	}
+
 	public function index()
 	{
 		$params = [];
@@ -32,11 +33,13 @@ class TrabalhadoresController extends Controller
 		$result = $this->model->find($this->table, $params, "all", true, $order);
 		$this->result = $result;
 	}
+
 	public function view($ID)
 	{
 		$result = $this->model->find($this->table, [["id", $ID]], "first")->data;
 		$this->result = $result;
 	}
+
 	public function add()
 	{
 		$this->checkPermit([0]);
@@ -54,6 +57,7 @@ class TrabalhadoresController extends Controller
 			}
 		}
 	}
+
 	public function edit($ID)
 	{
 		if ($_SESSION['userID'] != $ID) {
@@ -72,12 +76,14 @@ class TrabalhadoresController extends Controller
 			$this->result = $result;
 		}
 	}
+
 	public function delete($ID)
 	{
 		$this->checkPermit([0]);
 		$save = $this->model->delete($this->table, $ID);
 		echo "<script>window.history.go(-1)</script>";
 	}
+
 	public function checkPresence($ID)
 	{
 		if ($this->model->find("trab_presencas", [["id_trabalhador", $ID], ["data", date('Y-m-d')]], "first")->num > 0) {
@@ -85,6 +91,7 @@ class TrabalhadoresController extends Controller
 		}
 		return false;
 	}
+
 	public function setPresence($ID)
 	{
 		$find = $this->model->find("trab_presencas", [["id_trabalhador", $ID], ["data", date('Y-m-d')]], "first");
@@ -99,6 +106,7 @@ class TrabalhadoresController extends Controller
 		}
 		echo "<script>window.history.go(-1)</script>";
 	}
+
 	public function search()
 	{
 		$params = [];
@@ -111,6 +119,7 @@ class TrabalhadoresController extends Controller
 		$result = $this->model->find($this->table, $params);
 		$this->result = $result;
 	}
+
 	public function searchInstrutor()
 	{
 		$params = [];
@@ -123,6 +132,7 @@ class TrabalhadoresController extends Controller
 		$result = $this->model->find($this->table, $params);
 		$this->result = $result;
 	}
+
 	public function saveImage()
 	{
 		$params = [];
@@ -146,5 +156,6 @@ class TrabalhadoresController extends Controller
 			$this->result = $save->success;
 		}
 	}
+	
 }
 ?>

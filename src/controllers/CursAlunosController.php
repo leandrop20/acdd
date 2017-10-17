@@ -20,6 +20,7 @@ class CursAlunosController extends Controller
 		$sectorsAllow = [0,4];
 		parent::__construct($sectorsAllow);
 	}
+
 	public function index($ID)
 	{
 		$dataGrupo = $this->model->find('curs_grupos', [["id", $ID]], "first")->data;
@@ -57,6 +58,7 @@ class CursAlunosController extends Controller
 		$result->nomeCurso = $dataCurso['nome'];
 		$this->result = $result;
 	}
+
 	public function add($ID)
 	{
 		if (count($_POST) > 0) {
@@ -84,6 +86,7 @@ class CursAlunosController extends Controller
 			$this->result = $result;
 		}
 	}
+
 	public function edit($ID)
 	{
 		if (count($_POST) > 0) {
@@ -110,11 +113,13 @@ class CursAlunosController extends Controller
 			$this->result = $result;
 		}
 	}
+
 	public function delete($ID)
 	{
 		$save = $this->model->delete("curs_".$this->table, $ID);
 		echo "<script>window.history.go(-1)</script>";
 	}
+
 	public function getFaltas($grupoID, $alunoID)
 	{
 		$dataAulas = $this->model->find('curs_aulas', [["id_grupo", $grupoID]]);
@@ -126,4 +131,5 @@ class CursAlunosController extends Controller
 		}
 		return $dataAulas->num-$amount;
 	}
+	
 }

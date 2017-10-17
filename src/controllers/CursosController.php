@@ -20,6 +20,7 @@ class CursosController extends Controller
 		$sectorsAllow = [0,4];
 		parent::__construct($sectorsAllow);
 	}
+
 	public function index()
 	{
 		$params = [];
@@ -33,6 +34,7 @@ class CursosController extends Controller
 		$result = $this->model->find($this->table, $params, "all", true, $order);
 		$this->result = $result;
 	}
+
 	public function add()
 	{
 		if (count($_POST) > 0) {
@@ -45,6 +47,7 @@ class CursosController extends Controller
 			exit();
 		}
 	}
+
 	public function edit($ID)
 	{
 		if (count($_POST) > 0) {
@@ -60,11 +63,13 @@ class CursosController extends Controller
 			$this->result = $result;
 		}
 	}
+
 	public function delete($ID)
 	{
 		$save = $this->model->delete($this->table, $ID);
 		echo "<script>window.history.go(-1)</script>";
 	}
+
 	public function search()
 	{
 		$params = [];
@@ -76,4 +81,5 @@ class CursosController extends Controller
 		$result = $this->model->find($this->table, $params);
 		$this->result = $result;
 	}
+	
 }

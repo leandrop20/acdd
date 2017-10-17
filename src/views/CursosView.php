@@ -9,5 +9,6 @@ class CursosView extends View
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

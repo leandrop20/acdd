@@ -7,6 +7,7 @@ class View
 	{
 		
 	}
+
 	public function callAlert($text, $url = null)
 	{
 		echo "<div class='modal fade' id='alert' role='dialog'>
@@ -37,5 +38,6 @@ class View
 			  </script>
 			  ";
 	}
+	
 }
 ?>

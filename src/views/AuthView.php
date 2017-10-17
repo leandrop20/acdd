@@ -7,13 +7,16 @@ class AuthView
 	{
 
 	}
+
 	public function checkLog($data)
 	{
 		return $data;
 	}
+
 	public function getAuth($data)
 	{
 		return $data;
 	}
+	
 }
 ?>

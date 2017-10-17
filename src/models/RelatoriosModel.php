@@ -9,5 +9,6 @@ class RelatoriosModel extends Model
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

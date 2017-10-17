@@ -9,5 +9,6 @@ class CursGruposView extends View
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

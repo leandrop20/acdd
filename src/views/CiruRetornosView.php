@@ -9,5 +9,6 @@ class CiruRetornosView extends View
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

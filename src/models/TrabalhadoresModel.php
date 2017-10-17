@@ -9,5 +9,6 @@ class TrabalhadoresModel extends Model
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

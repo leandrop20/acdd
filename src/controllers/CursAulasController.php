@@ -20,6 +20,7 @@ class CursAulasController extends Controller
 		$sectorsAllow = [0,4];
 		parent::__construct($sectorsAllow);
 	}
+
 	public function index($ID)
 	{
 		$dataGrupo = $this->model->find('curs_grupos', [["id", $ID]], "first")->data;
@@ -46,6 +47,7 @@ class CursAulasController extends Controller
 		$result->nomeCurso = $dataCurso['nome'];
 		$this->result = $result;
 	}
+
 	public function add($ID)
 	{
 		if (count($_POST) > 0) {
@@ -64,11 +66,13 @@ class CursAulasController extends Controller
 			$this->result = $result;
 		}
 	}
+
 	public function delete($ID)
 	{
 		$save = $this->model->delete("curs_".$this->table, $ID);
 		echo "<script>window.history.go(-1)</script>";
 	}
+
 	public function call($ID)
 	{
 		if (count($_POST) > 0 && !isset($_POST['pag'])) {
@@ -100,6 +104,7 @@ class CursAulasController extends Controller
 			$this->result = $result;
 		}
 	}
+
 	public function checkPresence($aulaID, $alunoID)
 	{
 		if ($this->model->find("curs_presencas", [["id_aula", $aulaID], ["id_aluno", $alunoID]], "first")->num > 0) {
@@ -107,10 +112,12 @@ class CursAulasController extends Controller
 		}
 		return false;
 	}
+
 	public function pctPresenca($grupoID, $aulaID)
 	{
 		$totalAlunos = count($this->model->find("curs_alunos", [["id_grupo", $grupoID]])->data);
 		$totalPresencas = count($this->model->find("curs_presencas", [["id_aula", $aulaID]])->data);
 		return round(($totalPresencas/$totalAlunos)*100);
 	}
+	
 }

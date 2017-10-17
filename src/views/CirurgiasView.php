@@ -9,5 +9,6 @@ class CirurgiasView extends View
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

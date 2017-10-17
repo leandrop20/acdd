@@ -6,7 +6,7 @@ $farmLotes = new FarmLotesController();
 $data = $farmLotes->result;
 $idNums = "000000";
 
-const STATUS_LOTE = array("Vencido", "Normal");
+const STATUS_LOTE = array("Normal", "À vencer", "Vencido");
 ?>
 <!-- Modal -->
 <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
@@ -79,7 +79,12 @@ const STATUS_LOTE = array("Vencido", "Normal");
                     	<td><?= $data->data[$i]['nomeMedicamento']; ?></td>
                     	<td><?= $data->data[$i]['quantidade']; ?></td>
                     	<td><?= date('d/m/Y', strtotime(str_replace('/', '-', $data->data[$i]['validade']))); ?></td>
-                    	<td><?= STATUS_LOTE[$data->data[$i]['statusVencimento']]; ?></td>
+                    	<td>
+                            <?php $status = $data->data[$i]['statusVencimento']; ?>
+                            <span class="label label-<?= ($status == 2)?'danger':(($status==1)?'warning':'success'); ?>">
+                                <?= STATUS_LOTE[$status]; ?>
+                            </span>
+                        </td>
                     	<td class="actions">
                     		<a class="btn btn-warning btn-xs" href="edit/<?= $data->data[$i]['id']; ?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
                             <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" onclick="$('#ID').val('<?= $data->data[$i]['id']; ?>'); $('#delete-modal').modal('show');"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>

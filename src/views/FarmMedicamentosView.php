@@ -9,5 +9,6 @@ class FarmMedicamentosView extends View
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

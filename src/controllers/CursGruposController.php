@@ -20,6 +20,7 @@ class CursGruposController extends Controller
 		$sectorsAllow = [0,4];
 		parent::__construct($sectorsAllow);
 	}
+
 	public function index()
 	{
 		$params = [];
@@ -51,6 +52,7 @@ class CursGruposController extends Controller
 		}
 		$this->result = $result;
 	}
+
 	public function add()
 	{
 		if (count($_POST) > 0) {
@@ -63,6 +65,7 @@ class CursGruposController extends Controller
 			exit();
 		}
 	}
+
 	public function edit($ID)
 	{
 		if (count($_POST) > 0) {
@@ -82,9 +85,11 @@ class CursGruposController extends Controller
 			$this->result = $result;
 		}
 	}
+
 	public function delete($ID)
 	{
 		$save = $this->model->delete("curs_".$this->table, $ID);
 		echo "<script>window.history.go(-1)</script>";
 	}
+	
 }

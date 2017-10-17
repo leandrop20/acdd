@@ -19,6 +19,7 @@ class Controller
 		}
 		$this->checkPermit($sectors);
 	}
+
 	public function checkPermit($sectors = [])
 	{
 		//0 = administrativo, 1 = recepcao, 2 = atendimento, 3 = farmacia, 4 = cursos, 5 = tecnico
@@ -35,5 +36,6 @@ class Controller
 			exit();
 		}
 	}
+	
 }
 ?>

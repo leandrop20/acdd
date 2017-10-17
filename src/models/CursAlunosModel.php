@@ -9,5 +9,6 @@ class CursAlunosModel extends Model
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

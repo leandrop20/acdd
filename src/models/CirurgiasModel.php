@@ -9,5 +9,6 @@ class CirurgiasModel extends Model
 	{
 		parent::__construct();
 	}
+	
 }
 ?>

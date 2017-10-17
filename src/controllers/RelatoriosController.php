@@ -20,10 +20,12 @@ class RelatoriosController extends Controller
 		$sectorsAllow = [0];
 		parent::__construct($sectorsAllow);
 	}
+
 	private function convertDate($value)
 	{
 		return date('Y-m-d', strtotime(str_replace('/', '-', $value)));
 	}
+
 	public function assistidos()
 	{
 		$result = new stdClass();
@@ -51,6 +53,7 @@ class RelatoriosController extends Controller
 		}
 		$this->result = $result;
 	}
+
 	public function trabalhadores()
 	{
 		$result = new stdClass();
@@ -78,6 +81,7 @@ class RelatoriosController extends Controller
 		}
 		$this->result = $result;
 	}
+
 	public function atendimentos()
 	{
 		$result = new stdClass();
@@ -132,6 +136,7 @@ class RelatoriosController extends Controller
 
 		$this->result = $result;
 	}
+
 	public function cursos()
 	{
 		$result = new stdClass();
@@ -196,6 +201,7 @@ class RelatoriosController extends Controller
 
 		$this->result = $result;
 	}
+
 	public function farmacia()
 	{
 		$result = new stdClass();
@@ -245,4 +251,5 @@ class RelatoriosController extends Controller
 
 		$this->result = $result;
 	}
+	
 }
